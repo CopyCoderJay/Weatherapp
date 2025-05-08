@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import WeatherCard from '@/components/WeatherCard';
 import ForecastList from '@/components/ForecastList';
@@ -11,8 +11,7 @@ import {
   fetchCurrentLocationWeather,
   fetchCurrentLocationForecast,
 } from '@/services/weatherService';
-import { ForecastDay, WeatherData } from '@/types/weather';
-import { AxiosError } from 'axios';
+import { ForecastDay, imakeerr, WeatherData } from '@/types/weather';
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -23,34 +22,24 @@ export default function Home() {
   const [favoriteCities, setFavoriteCities] = useState<string[]>([]);
   const [newCity, setNewCity] = useState('');
 
-  const getWeatherData = async (query: string) => {
+  const getWeatherData = useCallback(async (city: string) => {
     try {
       setLoading(true);
-      setError(null); // Clear previous error
-      const isZip = /^\d+$/.test(query.trim());
-      const current = await fetchCurrentWeather(query, isZip, unit);
-      const forecastData = await fetchForecast(query, isZip, unit);
+      setError(null);
+      const isZip = /^\d+$/.test(city.trim());
+      const current = await fetchCurrentWeather(city, isZip, unit);
+      const forecastData = await fetchForecast(city, isZip, unit);
       setWeather(current);
       setForecast(forecastData);
-    } catch (err: unknown) {
+    } catch (err) {
       console.error(err);
-    
-      if (!navigator.onLine) {
-        setError('No internet connection. Please check your network.');
-      } else if ((err as AxiosError)?.response?.status === 404) {
-        setError('Invalid city or ZIP code. Please try again.');
-      } else if ((err as AxiosError)?.response?.status === 429) {
-        setError('Rate limit exceeded. Please wait a while and try again.');
-      } else {
-        setError('Something went wrong. Please try again later.');
-      }
-    
       setWeather(null);
       setForecast([]);
+      setError(navigator.onLine ? 'Something went wrong.' : 'No internet connection.');
     } finally {
       setLoading(false);
     }
-  };
+  }, [unit]);
 
   const fetchByLocation = () => {
     if (!navigator.geolocation) {
@@ -87,8 +76,8 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getWeatherData('Coimbatore');
-  }, [getWeatherData]);
+    getWeatherData("Coimbatore");
+  }, []); // Only run once
 
   useEffect(() => {
     const handleOffline = () =>

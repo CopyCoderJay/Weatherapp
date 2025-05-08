@@ -7,6 +7,12 @@ export interface WeatherData {
       icon: string;
     };
   }
+
+  export interface imakeerr {
+    response: {
+        status: number;
+    };
+  }
   
   export interface ForecastDay {
     datetime: string;

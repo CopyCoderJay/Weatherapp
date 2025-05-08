@@ -50,13 +50,15 @@ export default function ForecastList({ data, unit }: { data: ForecastDay[]; unit
             <Image src={day.weather.icon}
               alt={day.weather.description}
               className="w-16 h-16 mx-auto my-2"
+              width={64} // w-16 = 64px
+              height={64} // h-16 = 64px
             />
             <p className="text-sm text-gray-700 dark:text-gray-300">{day.weather.description}</p>
             <p className="text-sm font-semibold dark:text-white">
               High: {formatTemp(day.max_temp, unit === 'metric' ? 'C' : 'F')}
             </p>
             <p className="text-sm font-semibold dark:text-white">
-              Low: {formatTemp(day.max_temp, unit === 'metric' ? 'C' : 'F')}
+              Low: {formatTemp(day.min_temp, unit === 'metric' ? 'C' : 'F')}
             </p>
           </div>
         ))}

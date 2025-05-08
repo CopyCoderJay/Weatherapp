@@ -3,7 +3,7 @@ import { ForecastDay } from '@/types/weather';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 // In-memory cache (valid for 5 minutes)
-const cache: Record<string, { data: ForecastDay; timestamp: number }> = {};
+const cache: Record<string, { data: ForecastDay[]; timestamp: number }> = {};
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { city, zip, lat,lon,  unit = 'M' } = req.query;
