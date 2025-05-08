@@ -6,7 +6,7 @@ A sleek, modern weather application built with **Next.js** and **TypeScript**, d
 
 ## 🚀 Live Demo
 
-👉 [https://weatherapp.vercel.app](https://weatherapp.vercel.app)
+👉 [[https://weatherapp.vercel.app](https://weatherapp.vercel.app)](https://weatherapp-fawn-ten.vercel.app/)
 
 ---
 
