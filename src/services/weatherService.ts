@@ -1,4 +1,4 @@
-const isServer = typeof window === 'undefined';
+
 
 export const fetchCurrentWeather = async (query: string, isZip: boolean,unit:string) => {
     let urlParam = '';

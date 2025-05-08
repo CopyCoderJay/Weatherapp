@@ -31,6 +31,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const data = await response.json();
     res.status(200).json(data.data[0]);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch weather' });
+    console.error(err); // ✅ Use it
+    res.status(500).json({ error: 'Internal Server Error' });
   }
+  
 }

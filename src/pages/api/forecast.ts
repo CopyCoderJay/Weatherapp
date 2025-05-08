@@ -37,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     );
     const result = await response.json();
 
-    const formattedData = result.data.map((day: any) => ({
+    const formattedData = result.data.map((day: ForecastDay) => ({
       datetime: day.datetime,
       max_temp: day.max_temp,
       min_temp: day.min_temp,
@@ -55,6 +55,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     return res.status(200).json(formattedData);
   } catch (err) {
+    console.log(err)
     return res.status(500).json({ error: 'Failed to fetch forecast' });
   }
 }

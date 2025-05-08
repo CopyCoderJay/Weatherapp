@@ -1,4 +1,5 @@
 export interface WeatherData {
+    datetime: string;
     city_name: string;
     temp: number;
     weather: {
