@@ -24,7 +24,8 @@ A sleek, modern weather application built with **Next.js** and **TypeScript**, d
 ## 📁 Project Structure
 
 /src
-├── /app
+├── 
+/app
 
 │ └── page.tsx # Main weather UI
 
