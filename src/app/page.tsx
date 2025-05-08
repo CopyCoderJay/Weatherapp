@@ -11,10 +11,11 @@ import {
   fetchCurrentLocationWeather,
   fetchCurrentLocationForecast,
 } from '@/services/weatherService';
+import { ForecastDay, WeatherData } from '@/types/weather';
 
 export default function Home() {
-  const [weather, setWeather] = useState<any>(null);
-  const [forecast, setForecast] = useState<any[]>([]);
+  const [weather, setWeather] = useState<WeatherData | null>(null);
+  const [forecast, setForecast] = useState<ForecastDay[]>([]);
   const [loading, setLoading] = useState(false);
   const [unit, setUnit] = useState<'metric' | 'imperial'>('metric');
   const [error, setError] = useState<string | null>(null);
