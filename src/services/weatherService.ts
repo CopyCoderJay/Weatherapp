@@ -1,5 +1,4 @@
 const isServer = typeof window === 'undefined';
-const BASE = isServer ? process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000' : '';
 
 export const fetchCurrentWeather = async (query: string, isZip: boolean,unit:string) => {
     let urlParam = '';

@@ -8,7 +8,7 @@ export const useWeather = () => {
   const [forecast, setForecast] = useState<ForecastDay[]>([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [unit, setUnit] = useState<'C' | 'F'>('C');
+  const [unit] = useState<'metric' | 'imperial'>('metric');
 
 
   const search = async (query: string) => {

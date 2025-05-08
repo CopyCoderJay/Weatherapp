@@ -1,5 +1,6 @@
+import { WeatherData } from '@/types/weather';
 import type { NextApiRequest, NextApiResponse } from 'next';
-const cache: Record<string, { data: any; timestamp: number }> = {};
+const cache: Record<string, { data: WeatherData; timestamp: number }> = {};
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const { city, zip, lat,lon,  unit = 'M' } = req.query;
 

@@ -87,7 +87,7 @@ export default function Home() {
 
   useEffect(() => {
     getWeatherData('Coimbatore');
-  }, []);
+  }, [getWeatherData]);
 
   useEffect(() => {
     const handleOffline = () =>

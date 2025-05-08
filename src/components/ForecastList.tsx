@@ -1,5 +1,7 @@
 import { ForecastDay } from 'types/weather';
 import { formatTemp } from 'utils/helpers';
+import Image from 'next/image';
+
 import {
   LineChart,
   Line,
@@ -45,8 +47,7 @@ export default function ForecastList({ data, unit }: { data: ForecastDay[]; unit
             className="p-4 bg-blue-100 dark:bg-gray-700 text-center rounded-lg w-full sm:w-1/2 md:w-1/5 shadow-lg"
           >
             <p className="text-sm font-semibold dark:text-white">{day.datetime}</p>
-            <img
-              src={day.weather.icon}
+            <Image src={day.weather.icon}
               alt={day.weather.description}
               className="w-16 h-16 mx-auto my-2"
             />
