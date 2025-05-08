@@ -25,11 +25,17 @@ A sleek, modern weather application built with **Next.js** and **TypeScript**, d
 
 /src
 ├── /app
+
 │ └── page.tsx # Main weather UI
+
 ├── /services
-│ └── weatherService.ts # API calls to weather provider
+
+│ └── weatherService.ts
+
 ├── /types
-│ └── weather.ts # TypeScript interfaces for response
+
+│ └── weather.ts
+
 └── /styles
 
 ## 🧑‍💻 Local Setup Instructions
