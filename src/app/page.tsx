@@ -11,7 +11,7 @@ import {
   fetchCurrentLocationWeather,
   fetchCurrentLocationForecast,
 } from '@/services/weatherService';
-import { ForecastDay, imakeerr, WeatherData } from '@/types/weather';
+import { ForecastDay, WeatherData } from '@/types/weather';
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
