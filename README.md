@@ -15,7 +15,7 @@ A sleek, modern weather application built with **Next.js** and **TypeScript**, d
 - **Framework**: Next.js (App Router)
 - **Language**: TypeScript
 - **HTTP Client**: Axios
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS (optional)
 - **API**: OpenWeatherMap or similar
 - **Hosting**: Vercel
 
@@ -30,9 +30,7 @@ A sleek, modern weather application built with **Next.js** and **TypeScript**, d
 │ └── weatherService.ts # API calls to weather provider
 ├── /types
 │ └── weather.ts # TypeScript interfaces for response
-└── /styles (optional)
-
----
+└── /styles
 
 ## 🧑‍💻 Local Setup Instructions
 
@@ -40,33 +38,30 @@ Follow these steps to set up and run the project locally:
 
 ### 1. Clone the repository
 
-```bash
 git clone https://github.com/CopyCoderJay/Weatherapp.git
 cd Weatherapp
-2. Install dependencies
-bash
-Copy
-Edit
+
+### 2.  Install dependencies
 npm install
 # or
 yarn install
-3. Set up environment variables
-Create a .env.local file in the root directory and add your weather API key:
 
+### 3. Set up environment variables
 
 NEXT_PUBLIC_WEATHER_API_KEY=your_openweathermap_api_key
+  
 Get your free API key from https://openweathermap.org/api
 
-4. Run the development server
-bash
-Copy
-Edit
+### 4. Run the development server
+
 npm run dev
 # or
 yarn dev
+
 Then, open http://localhost:3000 in your browser.
 
 💡 Key Decisions & Thought Process
+
 Next.js with App Router: Leveraged the new App Router for better scalability and organization.
 
 TypeScript: Ensured type safety across API responses and components.
@@ -77,7 +72,7 @@ API Abstraction: All API interactions handled in weatherService.ts to separate c
 
 Environment Variables: Secured API keys using .env.local rather than hardcoding.
 
-Responsive UI: Designed with accessibility and responsiveness in mind
+Responsive UI: Designed with accessibility and responsiveness in mind.
 
 🌍 Deployment Instructions
 Deploy to Vercel (Recommended)
@@ -93,12 +88,4 @@ Click Deploy.
 
 That's it! Your app will be live in seconds.
 
-📚 Learn More
-Next.js Documentation
-
-OpenWeatherMap API
-
-Vercel Deployment Guide
-
-👨‍💻 Author
 Built with ❤️ by CopyCoderJay
