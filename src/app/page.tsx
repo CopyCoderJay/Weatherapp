@@ -12,6 +12,7 @@ import {
   fetchCurrentLocationForecast,
 } from '@/services/weatherService';
 import { ForecastDay, WeatherData } from '@/types/weather';
+import { AxiosError } from 'axios';
 
 export default function Home() {
   const [weather, setWeather] = useState<WeatherData | null>(null);
@@ -31,19 +32,19 @@ export default function Home() {
       const forecastData = await fetchForecast(query, isZip, unit);
       setWeather(current);
       setForecast(forecastData);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error(err);
-
+    
       if (!navigator.onLine) {
         setError('No internet connection. Please check your network.');
-      } else if (err?.response?.status === 404) {
+      } else if ((err as AxiosError)?.response?.status === 404) {
         setError('Invalid city or ZIP code. Please try again.');
-      } else if (err?.response?.status === 429) {
+      } else if ((err as AxiosError)?.response?.status === 429) {
         setError('Rate limit exceeded. Please wait a while and try again.');
       } else {
         setError('Something went wrong. Please try again later.');
       }
-
+    
       setWeather(null);
       setForecast([]);
     } finally {
