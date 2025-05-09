@@ -14,9 +14,8 @@ A sleek, modern weather application built with **Next.js** and **TypeScript**, d
 
 - **Framework**: Next.js (App Router)
 - **Language**: TypeScript
-- **HTTP Client**: Axios
-- **Styling**: Tailwind CSS (optional)
-- **API**: OpenWeatherMap or similar
+- **Styling**: Tailwind CSS
+- **API**: OpenWeatherMap
 - **Hosting**: Vercel
 
 ---
